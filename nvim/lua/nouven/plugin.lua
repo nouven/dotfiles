@@ -48,4 +48,6 @@ packer.startup(function(use)
 
   use { "ellisonleao/gruvbox.nvim" }
   use 'glepnir/lspsaga.nvim'
+
+  use { 'lewis6991/gitsigns.nvim', }
 end)
