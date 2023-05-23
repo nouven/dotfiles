@@ -122,12 +122,30 @@ nvim_lsp.astro.setup {
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
+    underline = false,
     update_in_insert = false,
-    virtual_text = { spacing = 4, prefix = "●" },
+    virtual_text = false,
+    --virtual_text = { spacing = 4, prefix = "●" },
     severity_sort = true,
   }
 )
+
+
+nvim_lsp.emmet_ls.setup({
+  -- on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug",
+    "typescriptreact", "vue" },
+  init_options = {
+    html = {
+      options = {
+        -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+        ["bem.enabled"] = true,
+      },
+    },
+  }
+})
+
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -145,10 +163,3 @@ end
 --    source = "always", -- Or "if_many"
 --  },
 --})
-
-vim.diagnostic.config({
-  virtual_text = false,
-  underline = false,
-  float = false,
-})
---vim.diagnostic.set(ns, 0, diagnostics, { virtual_text = false })

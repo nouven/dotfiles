@@ -1,3 +1,4 @@
-require('nouven.base')
-require('nouven.plugin')
-require('nouven.hilight')
+require("nouven.base")
+require("nouven.keymap")
+require("nouven.plugin")
+require("nouven.hilight")

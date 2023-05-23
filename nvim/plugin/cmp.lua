@@ -37,6 +37,14 @@ cmp.setup({
       select = true
     }),
   }),
+  window = {
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
+    completion = cmp.config.window.bordered({
+      winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
+    }),
+  },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
@@ -56,6 +64,7 @@ cmp.setup({
     })
   }
 })
+
 
 vim.cmd [[
   set completeopt=menuone,noinsert,noselect
