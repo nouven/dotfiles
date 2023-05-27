@@ -41,6 +41,7 @@ cmp.setup({
   window = {
     documentation = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
     },
     completion = cmp.config.window.bordered({
       winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
@@ -76,9 +77,3 @@ cmp.setup({
     }),
   },
 })
-
-
---vim.cmd [[
---  set completeopt=menuone,noinsert,noselect
---  highlight! default link CmpItemKind CmpItemMenuDefault
---]]

@@ -26,7 +26,7 @@ packer.startup(function(use)
     -- install jsregexp (optional!:).
     run = "make install_jsregexp"
   })
-
+  use 'glepnir/lspsaga.nvim'
 
   --use 'navarasu/onedark.nvim'
   use 'nvim-lualine/lualine.nvim'    -- Statusline
@@ -41,6 +41,7 @@ packer.startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
+  use 'nvim-telescope/telescope-file-browser.nvim'
 
   use 'akinsho/nvim-bufferline.lua'
 
@@ -49,7 +50,6 @@ packer.startup(function(use)
   use 'nvim-tree/nvim-tree.lua'
 
   use { "ellisonleao/gruvbox.nvim" }
-  use 'glepnir/lspsaga.nvim'
 
   use { 'lewis6991/gitsigns.nvim', }
 end)
