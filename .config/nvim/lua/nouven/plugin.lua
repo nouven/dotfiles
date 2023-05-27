@@ -12,9 +12,11 @@ packer.startup(function(use)
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-buffer",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
   }
+  use { 'saadparwaiz1/cmp_luasnip' }
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'onsails/lspkind-nvim'
   use({

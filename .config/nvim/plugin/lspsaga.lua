@@ -18,11 +18,11 @@ saga.setup({
   },
   outline = {
     win_position = "right",
-    win_with = "",
+    win_with = '',
     win_width = 30,
     show_detail = true,
-    auto_preview = false,
-    auto_refresh = false,
+    auto_preview = true,
+    auto_refresh = true,
     auto_close = true,
     custom_sort = nil,
     keys = {
@@ -40,7 +40,7 @@ saga.setup({
     show_source = true,
     jump_num_shortcut = true,
     --1 is max
-    max_width = 0.7,
+    max_width = 0.3,
     custom_fix = nil,
     custom_msg = nil,
     text_hl_follow = true,
@@ -145,11 +145,11 @@ keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 -- Note that if you use hover with ++keep, pressing this key again will
 -- close the hover window. If you want to jump to the hover window
 -- you should use the wincmd command "<C-w>w"
-keymap("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
+--keymap("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
 
 -- Call hierarchy
 keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
 keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Floating terminal
-keymap({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
+keymap({ "n", "t" }, "<F6>", "<cmd>Lspsaga term_toggle<CR>")
