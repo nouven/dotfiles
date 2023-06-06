@@ -146,6 +146,9 @@ nvim_lsp.emmet_ls.setup({
   }
 })
 
+nvim_lsp.clangd.setup {}
+nvim_lsp.gopls.setup {}
+
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
