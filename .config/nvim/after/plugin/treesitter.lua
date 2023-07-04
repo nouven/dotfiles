@@ -17,6 +17,7 @@ ts.setup {
     "typescript",
     "toml",
     "json",
+    "http",
     "yaml",
     "css",
     "html",

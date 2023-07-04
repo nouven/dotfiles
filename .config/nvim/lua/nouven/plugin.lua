@@ -51,5 +51,10 @@ packer.startup(function(use)
 
   use { "ellisonleao/gruvbox.nvim" }
 
+  use { "rest-nvim/rest.nvim", }
+
   use { 'lewis6991/gitsigns.nvim', }
+  use {
+    'numToStr/Comment.nvim',
+  }
 end)
