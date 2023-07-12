@@ -52,8 +52,7 @@ saga.setup({
     },
   },
   finder = {
-    max_height = 0.5,
-    min_width = 0.3,
+    max_height = 0.6,
     force_max_height = false,
     keys = {
       jump_to = 'p',
@@ -85,7 +84,7 @@ local keymap = vim.keymap.set
 -- If there is no definition, it will instead be hidden
 -- When you use an action in finder like "open vsplit",
 -- you can use <C-t> to jump back
-keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
+keymap("n", "gh", "<cmd>Lspsaga finder imp+def+ref<CR>")
 
 -- Code action
 keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
