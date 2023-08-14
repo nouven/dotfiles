@@ -54,4 +54,5 @@ packer.startup(function(use)
   use {
     'numToStr/Comment.nvim',
   }
+  use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
 end)

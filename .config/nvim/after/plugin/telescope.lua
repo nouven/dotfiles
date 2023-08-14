@@ -4,7 +4,6 @@ local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 local fb_actions = require "telescope".extensions.file_browser.actions
 
-
 require('telescope').setup {
   defaults = {
     mappings = {
@@ -35,6 +34,7 @@ require('telescope').setup {
         },
       },
     },
+
   },
 
 }

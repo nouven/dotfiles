@@ -6,6 +6,13 @@ local snip = ls.parser.parse_snippet
 ls.add_snippets("all", {
   snip(
     'db',
-    'console.log(\'<=========>\',\t${1})'
+    'console.log(\'<=========>    \',${1})'
+  )
+})
+
+ls.add_snippets("all", {
+  snip(
+    'log',
+    'console.log(\'<=========>    \',JSON.stringify(${1}, null, 2))'
   )
 })

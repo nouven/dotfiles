@@ -7,6 +7,9 @@ mason.setup({
 
 })
 
+--tailwindcss, tsserver, clangd, lua_ls, astro, cssls, flow, emmet_ls, gopls, sourcekit
+
 lspconfig.setup {
-  automatic_installation = true
+  automatic_installation = true,
+  ensure_installed = { "lua_ls", "tsserver", "tailwindcss", "emmet_ls", "gopls", "clangd" },
 }
