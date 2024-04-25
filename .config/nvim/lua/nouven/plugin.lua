@@ -51,11 +51,47 @@ packer.startup(function(use)
 
   use { "ellisonleao/gruvbox.nvim" }
 
-  use { "rest-nvim/rest.nvim", }
+  -- use {
+  --   "rest-nvim/rest.nvim",
+  --   rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
+  -- }
+
 
   use { 'lewis6991/gitsigns.nvim', }
   use {
     'numToStr/Comment.nvim',
   }
   use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
+
+  use { 'mfussenegger/nvim-dap' }
+  use {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {}
+    },
+  }
+  use {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end
+  }
 end)

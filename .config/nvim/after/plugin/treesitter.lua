@@ -21,6 +21,7 @@ ts.setup {
     "yaml",
     "css",
     "html",
+    "cpp",
     "lua"
   },
   autotag = {

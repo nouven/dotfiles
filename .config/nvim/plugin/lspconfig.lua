@@ -105,11 +105,6 @@ nvim_lsp.cssls.setup {
   capabilities = capabilities
 }
 
-nvim_lsp.astro.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = false,
@@ -136,8 +131,23 @@ nvim_lsp.emmet_ls.setup({
   }
 })
 
-nvim_lsp.clangd.setup {}
+nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
+
 nvim_lsp.gopls.setup {}
+
+nvim_lsp.pyright.setup {
+  capabilities = capabilities,
+}
+
+
+nvim_lsp.bashls.setup({})
 
 
 -- Diagnostic symbols in the sign column (gutter)
