@@ -36,6 +36,7 @@ function config()
       "vimdoc",
       "c",
       "http",
+      "go",
     },
     incremental_selection = {
       enable = true,

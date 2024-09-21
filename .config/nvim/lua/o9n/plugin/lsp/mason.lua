@@ -20,17 +20,16 @@ function config()
   mason_lspconfig.setup({
     -- list of servers for mason to install
     ensure_installed = {
-      "tsserver",
       "html",
       "cssls",
       "tailwindcss",
-      "svelte",
       "lua_ls",
       "graphql",
       "emmet_ls",
-      "prismals",
       "pyright",
       "bashls",
+      "gopls",
+      "ts_ls",
     },
   })
 
@@ -42,6 +41,7 @@ function config()
       "black", -- python formatter
       "pylint",
       "eslint_d",
+      "golangci-lint-langserver",
     },
   })
 end
