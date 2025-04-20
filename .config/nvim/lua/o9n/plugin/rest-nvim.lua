@@ -1,6 +1,6 @@
 ---rest.nvim default configuration
 ---@class rest.Config
-vim.g.rest_nvim = {
+local default_config = {
   ---@type table<string, fun():string> Table of custom dynamic variables
   custom_dynamic_variables = {},
   ---@class rest.Config.Request
@@ -26,7 +26,7 @@ vim.g.rest_nvim = {
       ---@type boolean Decode the request URL segments on response UI to improve readability
       decode_url = true,
       ---@type boolean Format the response body using `gq` command
-      format = true,
+      format = false,
     },
   },
   ---@class rest.Config.Clients
@@ -46,6 +46,8 @@ vim.g.rest_nvim = {
         ---@type boolean Add `--compressed` argument when `Accept-Encoding` header includes
         ---`gzip`
         set_compressed = false,
+        ---@type table<string, Certificate> Table containing certificates for each domains
+        certificates = {},
       },
     },
   },
@@ -62,6 +64,17 @@ vim.g.rest_nvim = {
     enable = true,
     ---@type string
     pattern = ".*%.env.*",
+    ---@type fun():string[]
+    find = function()
+      local config = require("rest-nvim.config")
+      return vim.fs.find(function(name, _)
+        return name:match(config.env.pattern)
+      end, {
+        path = vim.fn.getcwd(),
+        type = "file",
+        limit = math.huge,
+      })
+    end,
   },
   ---@class rest.Config.UI
   ui = {
@@ -85,16 +98,24 @@ vim.g.rest_nvim = {
   ---@see vim.log.levels
   ---@type integer log level
   _log_level = vim.log.levels.WARN,
-  ---@class rest.Config.DebugInfo
-  _debug_info = {
-    -- NOTE: default option is `nil` to prevent overwriting as empty array
-    ---@type string[]
-    unrecognized_configs = nil,
-  },
 }
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "httpResult", -- Assuming rest-nvim uses this file type for responses
+--   callback = function()
+--     vim.bo.textwidth = 80
+--     vim.bo.formatoptions = vim.bo.formatoptions .. "t"
+--   end,
+-- })
 
 local keymap = vim.keymap.set("n", "<leader>r", ":Rest run<CR>", {})
 return {
   "rest-nvim/rest.nvim",
-  lazy = false,
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      table.insert(opts.ensure_installed, "http")
+    end,
+  },
 }

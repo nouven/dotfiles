@@ -15,7 +15,7 @@ function keymap()
   -- Define the function to close the current buffer
   vim.api.nvim_set_keymap(
     "n",
-    "<A-c>",
+    "<A-q>",
     ":lua vim.api.nvim_buf_delete(vim.api.nvim_get_current_buf(), { force = false})<CR>",
     { silent = true }
   )

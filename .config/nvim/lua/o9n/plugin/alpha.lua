@@ -35,7 +35,7 @@ function config()
 end
 
 return {
-  "goolord/alpha-nvim",
-  event = "VimEnter",
-  config = config,
+  -- "goolord/alpha-nvim",
+  -- event = "VimEnter",
+  -- config = config,
 }
